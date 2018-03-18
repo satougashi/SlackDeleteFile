@@ -118,9 +118,10 @@ SlackDelFileApp.elapsedDaysToUnixTime = function(days){
 SlackDelFileApp.getFileListWithOutOption = function(channelId, days, ignoreType, count){
   if(count === undefined) count = 1000;
   var params = {
-    'token': SlackDelFileApp.SLACK_ACCESS_TOKEN,
-    'count': count,
-    'ts_to': SlackDelFileApp.elapsedDaysToUnixTime(days)
+    'token'	: SlackDelFileApp.SLACK_ACCESS_TOKEN,
+    'count'	: count,
+    'ts_to'	: SlackDelFileApp.elapsedDaysToUnixTime(days),
+    'channel'	: channelId,
   }
   var allFiles = this.execute('files.list', params); // まず、全てのファイルを取ってくる
   
